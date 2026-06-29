@@ -6,7 +6,7 @@ I care most about the last mile. A model nobody uses isn't done — so I build t
 
 ---
 
-### 🔭 Featured project — [Lumen NPI](https://github.com/[handle]/lumen-npi)
+### 🔭 Featured project — [Lumen NPI](https://github.com/israelortizcpsc/lumen-npi)
 **Cold-start demand forecasting + a natural-language planning copilot for high-SKU retail.**
 Forecasts first-90-day demand for brand-new SKUs that have *zero* sales history, using product attributes alone — then classifies movers, flags over/under-stock risk, explains every prediction (SHAP), and answers planner questions in plain English with grounded, cited numbers.
 🔗 **[Live demo]([url])** · 🎥 **[90-sec walkthrough]([url])** · 🧠 quantile GBMs · LLM + retrieval · Responsible-AI by design
@@ -24,7 +24,7 @@ Forecasts first-90-day demand for brand-new SKUs that have *zero* sales history,
 Deepening the Azure AI + Microsoft Fabric stack and working toward **Microsoft Certified: Azure AI Engineer Associate**.
 
 ### 📫 Reach me
-[email] · [linkedin.com/in/handle] · [portfolio-url]
+israeljortizcpsc@gmail.com · [linkedin.com/in/handle] · [israelortizcpsc.github.io/portfolio-2026](https://israelortizcpsc.github.io/portfolio-2026/)
 
 ---
 
