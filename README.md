@@ -1,4 +1,4 @@
-# Hi, I'm [Your Name] 👋
+# Hi, I'm Israel Ortiz 👋
 
 **AI / Machine Learning Engineer** — I turn operational data into decision-grade tools: forecasting, classification, anomaly detection, and LLM-powered interfaces that put insight in front of the people making the call.
 
@@ -24,7 +24,7 @@ Forecasts first-90-day demand for brand-new SKUs that have *zero* sales history,
 Deepening the Azure AI + Microsoft Fabric stack and working toward **Microsoft Certified: Azure AI Engineer Associate**.
 
 ### 📫 Reach me
-israeljortizcpsc@gmail.com · [linkedin.com/in/handle] · [israelortizcpsc.github.io/portfolio-2026](https://israelortizcpsc.github.io/portfolio-2026/)
+israeljortizcpsc@gmail.com · [LinkedIn](https://www.linkedin.com/in/jacob-ortiz-152660335/) · [israelortizcpsc.github.io/portfolio-2026](https://israelortizcpsc.github.io/portfolio-2026/)
 
 ---
 
