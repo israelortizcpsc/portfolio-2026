@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Your Name] — AI / ML Engineer</title>
+<meta name="description" content="AI/ML engineer building cold-start demand forecasting and LLM copilots, embedded where decisions get made.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+  :root{
+    --ink:#171310;          /* warm near-black */
+    --ink-2:#211a14;        /* lifted panel */
+    --ink-3:#2c231b;        /* card border / hover */
+    --filament:#F4B860;     /* incandescent amber — the light */
+    --glow:#FFD27A;         /* hot core */
+    --brass:#B08A4F;        /* muted brass */
+    --cream:#F3EBDD;        /* warm off-white */
+    --muted:#A99A86;        /* dimmed text */
+    --maxw:1080px;
+    --disp:"Space Grotesk",-apple-system,Segoe UI,Roboto,sans-serif;
+    --body:"Inter",-apple-system,Segoe UI,Roboto,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:var(--body);
+    font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .mono{font-family:var(--mono);letter-spacing:.02em}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--brass);
+  }
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--ink) 82%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--ink-3);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-family:var(--disp);font-weight:600;letter-spacing:.01em;font-size:16px}
+  .brand .dot{color:var(--filament)}
+  .nav-right{display:flex;align-items:center;gap:20px;font-size:14px}
+  .avail{font-family:var(--mono);font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:7px}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--filament);
+    box-shadow:0 0 0 0 var(--filament);animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(244,184,96,.5)}70%{box-shadow:0 0 0 8px rgba(244,184,96,0)}100%{box-shadow:0 0 0 0 rgba(244,184,96,0)}}
+  .nav-cta{border:1px solid var(--brass);border-radius:999px;padding:7px 15px;font-size:13px;
+    transition:background .2s,color .2s}
+  .nav-cta:hover{background:var(--filament);color:var(--ink);border-color:var(--filament)}
+
+  /* ---- hero ---- */
+  header{position:relative;padding:74px 0 40px}
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}
+  h1{
+    font-family:var(--disp);font-weight:600;
+    font-size:clamp(34px,5.4vw,60px);line-height:1.02;letter-spacing:-.02em;
+    margin:18px 0 20px;
+  }
+  h1 .lit{color:var(--filament)}
+  .lede{font-size:clamp(16px,1.7vw,19px);color:var(--cream);max-width:34ch;opacity:.92}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:9px;border-radius:999px;
+    padding:12px 20px;font-size:14.5px;font-weight:500;transition:transform .15s,background .2s,box-shadow .2s}
+  .btn-primary{background:var(--filament);color:#2a1d09;
+    box-shadow:0 0 0 rgba(244,184,96,0)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(244,184,96,.55)}
+  .btn-ghost{border:1px solid var(--ink-3);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--brass);transform:translateY(-2px)}
+  .btn .arr{font-family:var(--mono)}
+
+  /* ---- the signature: forecast-cone-as-light-beam ---- */
+  .beam-wrap{position:relative;min-height:330px}
+  .beam-svg{width:100%;height:auto;display:block}
+  .beam-cap{font-family:var(--mono);font-size:11px;color:var(--muted);
+    text-align:center;margin-top:10px;letter-spacing:.04em}
+  /* ambient glow bleeding off the hero */
+  .ambient{position:absolute;inset:-10% -20% auto auto;width:60%;height:420px;
+    background:radial-gradient(closest-side, rgba(255,210,122,.16), transparent 70%);
+    filter:blur(8px);pointer-events:none;z-index:-1}
+
+  /* ---- section scaffolding ---- */
+  section{padding:64px 0;border-top:1px solid var(--ink-3)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:30px}
+  .sec-head h2{font-family:var(--disp);font-weight:600;font-size:clamp(22px,3vw,30px);letter-spacing:-.01em}
+  .sec-num{font-family:var(--mono);font-size:12px;color:var(--brass)}
+
+  /* ---- signature project card ---- */
+  .feature{position:relative;border:1px solid var(--ink-3);border-radius:18px;
+    background:linear-gradient(180deg,var(--ink-2),var(--ink));overflow:hidden}
+  .feature::before{content:"";position:absolute;top:-40%;right:-10%;width:55%;height:120%;
+    background:radial-gradient(closest-side,rgba(255,210,122,.13),transparent 72%);pointer-events:none}
+  .feature .inner{position:relative;padding:34px 34px 30px}
+  .feature .kicker{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .feature h3{font-family:var(--disp);font-weight:600;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.01em}
+  .feature .one-liner{color:var(--cream);opacity:.92;max-width:62ch;margin-top:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}
+  .chip{font-family:var(--mono);font-size:11.5px;color:var(--cream);
+    border:1px solid var(--ink-3);border-radius:7px;padding:6px 10px;background:rgba(255,255,255,.02)}
+  .chip b{color:var(--filament);font-weight:500}
+  .why{margin-top:20px;padding-top:18px;border-top:1px dashed var(--ink-3);
+    color:var(--muted);font-size:14.5px;max-width:70ch}
+  .why b{color:var(--cream);font-weight:600}
+  .feature .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+  /* ---- range / smaller artifacts ---- */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{border:1px solid var(--ink-3);border-radius:14px;padding:22px;background:var(--ink-2);
+    transition:transform .15s,border-color .2s}
+  .card:hover{transform:translateY(-3px);border-color:var(--brass)}
+  .card .tag{font-family:var(--mono);font-size:11px;color:var(--brass);letter-spacing:.08em}
+  .card h4{font-family:var(--disp);font-weight:600;font-size:18px;margin:10px 0 8px}
+  .card p{font-size:14.5px;color:var(--muted)}
+  .card .go{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:12.5px;color:var(--filament)}
+
+  /* ---- how I work ---- */
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .principle .n{font-family:var(--mono);font-size:12px;color:var(--brass)}
+  .principle h4{font-family:var(--disp);font-weight:600;font-size:18px;margin:8px 0 8px}
+  .principle p{font-size:14.5px;color:var(--muted)}
+
+  /* ---- stack ---- */
+  .stack{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .stack .lab{font-family:var(--mono);font-size:11px;color:var(--brass);letter-spacing:.12em;
+    text-transform:uppercase;margin-bottom:10px}
+  .stack ul{list-style:none;font-size:14.5px;color:var(--cream)}
+  .stack li{padding:3px 0;opacity:.9}
+
+  /* ---- contact footer ---- */
+  footer{padding:64px 0 56px;border-top:1px solid var(--ink-3);position:relative}
+  .foot-glow{position:absolute;left:50%;top:-1px;transform:translateX(-50%);width:340px;height:2px;
+    background:linear-gradient(90deg,transparent,var(--filament),transparent);opacity:.7}
+  .foot-h{font-family:var(--disp);font-weight:600;font-size:clamp(24px,4vw,38px);
+    letter-spacing:-.01em;margin-bottom:8px}
+  .foot-h .lit{color:var(--filament)}
+  .foot-sub{color:var(--muted);margin-bottom:26px}
+  .foot-links{display:flex;flex-wrap:wrap;gap:14px}
+  .foot-links a{border:1px solid var(--ink-3);border-radius:999px;padding:11px 18px;font-size:14px;
+    font-family:var(--mono);transition:border-color .2s,transform .15s}
+  .foot-links a:hover{border-color:var(--brass);transform:translateY(-2px)}
+  .foot-links a.solid{background:var(--filament);color:#2a1d09;border-color:var(--filament)}
+  .colophon{margin-top:34px;font-family:var(--mono);font-size:11px;color:var(--muted);opacity:.7}
+
+  /* ---- motion / reveal (progressive enhancement: visible without JS) ---- */
+  .reveal{transition:opacity .6s ease,transform .6s ease}
+  .js .reveal{opacity:0;transform:translateY(14px)}
+  .js .reveal.in{opacity:1;transform:none}
+  :focus-visible{outline:2px solid var(--filament);outline-offset:3px;border-radius:4px}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---- responsive ---- */
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:30px}
+    .beam-wrap{order:-1;min-height:240px}
+    .grid3,.principles,.stack{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .grid3,.principles,.stack{grid-template-columns:1fr}
+    .nav-right .avail{display:none}
+    .wrap{padding:0 20px}
+    section{padding:48px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">[Your Name]<span class="dot">.</span></a>
+    <div class="nav-right">
+      <span class="avail"><span class="pulse"></span>Open to AI/ML roles</span>
+      <a class="nav-cta" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="ambient"></div>
+  <div class="wrap hero">
+    <div class="reveal in">
+      <span class="eyebrow">AI / ML Engineer · Forecasting + LLM systems</span>
+      <h1>I forecast the demand<br>you <span class="lit">can't see yet.</span></h1>
+      <p class="lede">Cold-start models and natural-language copilots — built to be trusted, explained, and embedded where the decision actually gets made.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="[live-demo-url]">See Lumen NPI live <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="[github-url]">Read the build</a>
+      </div>
+    </div>
+
+    <div class="beam-wrap reveal in">
+      <!-- SIGNATURE: a quantile forecast cone drawn as a beam of light from a fixture point.
+           P90/P50/P10 are the forecast bands; the beam widens into uncertainty. -->
+      <svg class="beam-svg" viewBox="0 0 460 340" role="img"
+           aria-label="A forecasting cone drawn as a beam of warm light: a single point of light widens into a P10–P90 demand range over time.">
+        <defs>
+          <radialGradient id="src" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFE6B0"/>
+            <stop offset="45%" stop-color="#F4B860"/>
+            <stop offset="100%" stop-color="#F4B860" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#F4B860" stop-opacity=".06"/>
+          </linearGradient>
+          <linearGradient id="med" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#FFE6B0"/>
+            <stop offset="100%" stop-color="#F4B860" stop-opacity=".25"/>
+          </linearGradient>
+        </defs>
+
+        <!-- grid baseline -->
+        <line x1="44" y1="300" x2="436" y2="300" stroke="#2c231b" stroke-width="1"/>
+        <line x1="44" y1="40"  x2="44"  y2="300" stroke="#2c231b" stroke-width="1"/>
+
+        <!-- the cone of light (P10–P90 band) emanating from the source at left -->
+        <path d="M52,170 L430,70 L430,290 Z" fill="url(#beam)"/>
+
+        <!-- P50 median ray -->
+        <line x1="52" y1="170" x2="430" y2="180" stroke="url(#med)" stroke-width="2.4"/>
+
+        <!-- dotted P90 / P10 edges -->
+        <line x1="52" y1="170" x2="430" y2="70"  stroke="#F4B860" stroke-width="1" stroke-dasharray="3 4" opacity=".7"/>
+        <line x1="52" y1="170" x2="430" y2="290" stroke="#F4B860" stroke-width="1" stroke-dasharray="3 4" opacity=".7"/>
+
+        <!-- the light source (a new SKU: one point, no history) -->
+        <circle cx="52" cy="170" r="26" fill="url(#src)"/>
+        <circle cx="52" cy="170" r="4.5" fill="#FFF3D6"/>
+
+        <!-- labels -->
+        <text x="438" y="68"  fill="#A99A86" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">P90</text>
+        <text x="438" y="184" fill="#F4B860" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">P50</text>
+        <text x="438" y="300" fill="#A99A86" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">P10</text>
+        <text x="40"  y="150" fill="#A99A86" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="end" transform="rotate(-90 40 150)">units</text>
+        <text x="240" y="324" fill="#A99A86" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">weeks since launch →</text>
+        <text x="60"  y="206" fill="#A99A86" font-family="JetBrains Mono, monospace" font-size="10">new SKU · no history</text>
+      </svg>
+      <p class="beam-cap">a quantile forecast is a beam of light: one dark point, widening into a range you can plan against</p>
+    </div>
+  </div>
+</header>
+
+<!-- ================= SIGNATURE PROJECT ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">01</span><h2>Signature project</h2></div>
+    <div class="feature reveal">
+      <div class="inner">
+        <div class="kicker"><span class="eyebrow">Lumen NPI</span></div>
+        <h3>Cold-start demand intelligence for high-SKU retail</h3>
+        <p class="one-liner">Forecasts first-90-day demand for brand-new SKUs that have <b>zero sales history</b> — from product attributes alone — then classifies movers, flags stock risk, explains every prediction, and answers a planner's questions in plain English.</p>
+        <div class="chips">
+          <span class="chip"><b>quantile</b> forecasting (P10/P50/P90)</span>
+          <span class="chip"><b>classification</b> · movers</span>
+          <span class="chip"><b>clustering</b> · archetypes</span>
+          <span class="chip"><b>anomaly</b> · stock-risk flags</span>
+          <span class="chip"><b>SHAP</b> · per-prediction why</span>
+          <span class="chip"><b>LLM copilot</b> · grounded + cited</span>
+          <span class="chip">Power BI–style dashboard</span>
+        </div>
+        <p class="why"><b>Why it matters:</b> a retailer launching thousands of new SKUs a year lives or dies on forecasting demand for products with no history — buy too much and you discount it, too little and you lose the sale. Lumen NPI is a working answer to exactly that problem.</p>
+        <div class="links">
+          <a class="btn btn-primary" href="[live-demo-url]">Open the live demo <span class="arr">→</span></a>
+          <a class="btn btn-ghost" href="[github-url]">GitHub</a>
+          <a class="btn btn-ghost" href="[loom-url]">90-sec walkthrough</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RANGE ================= -->
+<section id="more">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">02</span><h2>Range</h2></div>
+    <div class="grid3">
+      <div class="card reveal">
+        <span class="tag">NL → BI</span>
+        <h4>Text-to-insight</h4>
+        <p>Ask a question in plain English, get the right chart back from a star schema — the natural-language layer over a semantic model.</p>
+        <a class="go" href="[url]">view →</a>
+      </div>
+      <div class="card reveal">
+        <span class="tag">ANOMALY</span>
+        <h4>Order-pattern watch</h4>
+        <p>Unsupervised detection of anomalous order and return patterns in retail data, with a crisp writeup of precision/recall tradeoffs.</p>
+        <a class="go" href="[url]">view →</a>
+      </div>
+      <div class="card reveal">
+        <span class="tag">RAG</span>
+        <h4>Catalog search</h4>
+        <p>"Find brass sconces under $400 for a coastal project" — retrieval over a product catalog with grounded, attribute-aware answers.</p>
+        <a class="go" href="[url]">view →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW I WORK ================= -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">03</span><h2>How I work</h2></div>
+    <div class="principles">
+      <div class="principle reveal">
+        <span class="n">/ the last mile</span>
+        <h4>A model nobody uses isn't done</h4>
+        <p>I build the explanation, the guardrails, and the BI/UI layer that turn a prediction into a decision someone actually trusts and acts on.</p>
+      </div>
+      <div class="principle reveal">
+        <span class="n">/ defensible</span>
+        <h4>Every line, owned</h4>
+        <p>I build fast with modern AI tooling — and I can rebuild any file from a blank editor and explain it. If I can't defend it, it doesn't ship.</p>
+      </div>
+      <div class="principle reveal">
+        <span class="n">/ responsible</span>
+        <h4>Explainable by default</h4>
+        <p>SHAP on predictions, grounded and cited LLM answers, model cards, monitoring and drift, humans in the loop on decisions that matter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STACK ================= -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">04</span><h2>Stack</h2></div>
+    <div class="stack reveal">
+      <div>
+        <div class="lab">Languages</div>
+        <ul><li>Python</li><li>SQL / T-SQL</li><li>Bash</li></ul>
+      </div>
+      <div>
+        <div class="lab">ML / Forecasting</div>
+        <ul><li>scikit-learn</li><li>XGBoost / LightGBM</li><li>PyTorch</li><li>SHAP</li></ul>
+      </div>
+      <div>
+        <div class="lab">AI / LLM</div>
+        <ul><li>Azure OpenAI / OpenAI</li><li>RAG · text-to-insight</li><li>evals · guardrails</li><li>copilots · agents</li></ul>
+      </div>
+      <div>
+        <div class="lab">Cloud · Data · BI</div>
+        <ul><li>Azure ML / Azure AI</li><li>Microsoft Fabric · Synapse</li><li>Power BI · datamarts</li><li>MLflow · Docker</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<footer id="contact">
+  <div class="foot-glow"></div>
+  <div class="wrap">
+    <p class="eyebrow">Let's talk</p>
+    <p class="foot-h">Bring the model <span class="lit">close to the business.</span></p>
+    <p class="foot-sub">Happy to walk through any project live — including editing it on the spot.</p>
+    <div class="foot-links">
+      <a class="solid" href="mailto:[email]">[email]</a>
+      <a href="[linkedin-url]">LinkedIn</a>
+      <a href="[github-url]">GitHub</a>
+      <a href="[resume-url]">Résumé (PDF)</a>
+    </div>
+    <p class="colophon">[Your Name] · [City, State] · built and maintained by hand</p>
+  </div>
+</footer>
+
+<script>
+  // Quiet scroll reveal — respects reduced-motion (handled in CSS; this just adds .in)
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(el => { if (!el.classList.contains('in')) io.observe(el); });
+  } else {
+    els.forEach(el => el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
